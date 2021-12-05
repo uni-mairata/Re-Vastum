@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--https://www.w3schools.com/html/default.asp-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>REPLACE TITLE LATER</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="loading.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!--START Loading Screen Javascript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      $("body").append(
+        '<div style="" id="loadingDiv"><div class="loader"></div></div>'
+      );
+      $(window).on("load", function() {
+        setTimeout(removeLoader, 500); //wait for page load
+      });
+      function removeLoader() {
+        $("html,body").scrollTop(0);
+        $("#loadingDiv").fadeOut(500, function() {
+          // fadeOut complete. Remove the loading div
+          $("#loadingDiv").remove(); //makes page more lightweight
+        });
+      }
+    </script> 
+    <!--END Loading Screen Javascript-->
+    
+  </body>
+</html>
