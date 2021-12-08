@@ -1,9 +1,9 @@
-/*--COLOR SCHEME--*/
-/*--
-+ navy blue: #004280
-+ warm pink: #ecb5a1 
-+ green: #6d9c82
-+ greyish brown: #d1c7b4
-+ white
-+ 
-*--/
+.subtitle {
+  margin-top: 0;
+  color: white;
+}
+
+.headerLinks {
+  text-decoration: none;
+  color: white;
+}
