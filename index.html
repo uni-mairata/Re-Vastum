@@ -10,9 +10,11 @@
 	<title>Re: Vastum⁷</title>
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
 	<link rel="stylesheet" href="dist/css/style.css">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="loading.css">
-	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js">	</script>
+	<link rel="stylesheet" href="pagesCSS/style.css">
+	<link rel="stylesheet" href="pagesCSS/loading.css">
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js">
+
+	</script>
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js">
 
 	</script>
@@ -21,32 +23,30 @@
 <body class="is-boxed has-animations">
 	<div class="body-wrap">
 		<header class="site-header">
-			<div class="container" <div class="site-header-inner">
-				<div class="brand header-brand">
-					<h1 class="m-0">
-						<a href="index.html">
-							<img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
+			<div class="container">
+				<div class="site-header-inner">
+					<div class="brand header-brand">
+						<h1 class="m-0">
+							<a href="index.html">
+								<img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
                             </a>
                         </h1>
                     </div>
                     <a href="pages/input.html" class = "headerLinks"> 
                       Track
                     </a>
-                    <a href="pages/rewards.html" class = "headerLinks"> 
-                      Rewards 
-                    </a>
                     <a href="pages/info.html" class = "headerLinks"> 
                       Learn more 
                     </a>
                     <a href="pages/signin.html" class = "headerLinks"> 
-                      Sign up/log in 
+                      <b>Sign up/log in</b> 
                     </a>
                 </div>
             </div>
     </header>
     
     <!--START Loading Screen Javascript-->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
       $("body").append(
         '<div style="" id="loadingDiv"><div class="loader"></div></div>'
@@ -61,9 +61,9 @@
           $("#loadingDiv").remove(); //makes page more lightweight
         });
       }
-    </script> -->
+    </script> 
     <!--END Loading Screen Javascript-->
-
+    
         <main>
             <section class="hero">
                 <div class="container">
@@ -72,9 +72,9 @@
 	                        <h1 class="hero-title mt-0">Re: Vastum⁷</h1>
                           <h2 class="subtitle">Recycling better &#9851; </h2>
 	                        <p class="hero-paragraph">Track how much of your recycling is actually recycled. </p>
-	                        <div class="hero-cta"><a class="button button-primary" href="#">Sign in</a><a class="button" href="#">Use without signing in</a></div>
+	                        <div class="hero-cta"><a class="button button-primary" href="pages/signin.html">Sign in</a><a class="button" href="pages/input.html">Use without signing in</a></div>
 						</div>
-						<div class="hero-figure anime-element">
+						<!-- <div class="hero-figure anime-element">
 							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
 								<rect width="528" height="396" style="fill:transparent;" />
 							</svg>
@@ -88,7 +88,7 @@
 							<div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
 							<div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
 							<div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
-						</div>
+						</div> -->
                     </div>
                 </div>
             </section>
@@ -102,7 +102,7 @@
                                     <div class="feature-icon">
 										<img src="dist/images/feature-icon-01.svg" alt="Feature 01">
                                     </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
+                                    <h4 class="feature-title mt-24">Raising Awareness About Recycling</h4>
                                     <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
                                 </div>
                             </div>
@@ -111,7 +111,8 @@
                                     <div class="feature-icon">
 										<img src="dist/images/feature-icon-02.svg" alt="Feature 02">
                                     </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
+                                    <h4 class="feature-title mt-24">Low Cost</h4>
+                                    <br>
                                     <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
                                 </div>
                             </div>
@@ -120,7 +121,7 @@
                                     <div class="feature-icon">
 										<img src="dist/images/feature-icon-03.svg" alt="Feature 03">
                                     </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
+                                    <h4 class="feature-title mt-24">More Information About Recycling</h4>
                                     <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
                                 </div>
                             </div>
@@ -129,7 +130,7 @@
                                     <div class="feature-icon">
 										<img src="dist/images/feature-icon-04.svg" alt="Feature 04">
                                     </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
+                                    <h4 class="feature-title mt-24">Easy to Use</h4>
                                     <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
                                 </div>
                             </div>

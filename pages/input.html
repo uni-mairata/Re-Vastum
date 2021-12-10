@@ -1,7 +1,318 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
+<html lang="en">
+
+<head>
+	<title>Recycling Input</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+	<link rel="stylesheet" href="../dist/css/style.css">
+	<link rel="stylesheet" href="../pagesCSS/style.css">
+  <link rel="stylesheet" href="../pagesCSS/loading.css"> 
+	<link rel="stylesheet" href="../pagesCSS/input.css"> 
+	
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js">
+
+	</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+	<script src="/script.js" defer>
+
+	</script>
+	<script src="https://kit.fontawesome.com/51afdf5c50.js" crossorigin="anonymous">
+
+	</script>
+</head>
+
+<body>
+		<header class="custom-header">
+			<div class="container">
+				<div class="site-header-inner">
+					<div class="brand header-brand">
+						<h1 class="m-0">
+							<a href="../index.html">
+								<img class="header-logo-image" src="../dist/images/logo.svg" alt="Logo">
+                            </a>
+                        </h1>
+                    </div>
+                    <a href="../pages/input.html" class = "headerLinks"> 
+                      Track
+                    </a>
+                    <a href="../pages/info.html" class = "headerLinks"> 
+                      Learn more 
+                    </a>
+                    <a href="../pages/signin.html" class = "headerLinks"> 
+                      <b>Sign up/log in</b>
+                    </a>
+                </div>
+            </div>
+    </header>
+    
+    <center> <h1> How much of the recycling you put out is actually recycled? </h1> </center>
+    <br>
+    <p class="instructionsText">First, pick a unit of measurement
+      <br>Make sure all inputs are in this unit </p>
+    <br>
+      <p class="instructionsText2 instructionUnit">Current unit: </p>
+      <p class="instructionsText2" id="UnitChoices">N/A</p>
+
+      <div class="dropdown">
+      <button onclick="openDropdown()" class="dropbtn">Select unit</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a id="lb" href="#jumpToHere" onclick="changeUnits(this.id);">pounds (lb)</a>
+          <a id="kg" href="#jumpToHere" onclick="changeUnits(this.id)">kilograms (kg)</a>
+          <a id="oz" href="#jumpToHere" onclick="changeUnits(this.id)">ounces (oz)</a>
+          <a id="g" href="#jumpToHere" onclick="changeUnits(this.id)">grams (g)</a>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br>
+      
+    <div class="selections" >
+      <br id="jumpToHere">
+    <center>
+      <p>
+        Check off a recyclable and enter an approximate amount
+        <br> Then, click the enter button </p>
+    </center>
+    <div class="centerlist">
+      
+      <!-- Recyclables on the list are paper, cardboard, rubber/leather, plastic, metals other than aluminum, aluminum, and glass -->
+
+      <p>
+        <input type="checkbox" id="Paper" name="Paper" onclick="textInput(this);" />
+        <label for="Paper">Paper</label>
+        <p id="insertInputsPaper"></p>
+      </p>
+      
+      <p></p>
+
+      <p>
+        <input type="checkbox" id="Cardboard" name="Cardboard" onclick="textInput(this);" />
+        <label for="Cardboard">Cardboard</label>
+        <p id="insertInputsCardboard"></p>
+      </p>
+
+      <p>
+        <input type="checkbox" id="Glass" name="Glass" onclick="textInput(this);" />
+        <label for="Glass">Glass</label>
+        <p id="insertInputsGlass"></p>
+      </p>
+
+      <p>
+        <input type="checkbox" id="Plastic" name="Plastic" onclick="textInput(this);" />
+        <label for="Plastic">Plastic</label>
+        <p id="insertInputsPlastic"></p>
+      </p>
+
+      <p>
+        <input type="checkbox" id="Metal" name="Metal" onclick="textInput(this);" />
+        <label for="Metal">Metal</label>
+        <p id="insertInputsMetal"></p>
+      </p>
+
+      <p></p>
+      <p>
+        <input type="checkbox" id="Aluminum" name="Aluminum" onclick="textInput(this);" />
+        <label for="Aluminum">Aluminum</label>
+        <p id="insertInputsAluminum"></p>
+      </p>
+
+      <p>
+        <input type="checkbox" id="Rubber" name="Rubber" onclick="textInput(this);" />
+        <label for="Rubber">Rubber</label>
+        <p id="insertInputsRubber"></p>
+      </p>
+
+    </div>
+    
+
+    <button class="myButton center" onclick="track_recyclables();">Enter</button>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Results</h2>
+        </div>
+        <div class="modal-body">
+          <br>
+          <div id="after_submit">
+            <p style="color: #242830; font-size: 25px;" id="results_display"></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h3 style="font-size:20px; color: #7B9AA8; margin-left: 20px; ">Click the X to exit</h3>
+        </div>
+      </div>
+
+    </div>
+    
+    <button class="myButton center" onclick="location.href='../index.html'">
+      Back to home &#8962
+    </button>    
+
   </body>
+
+  <script>
+    var modal = document.getElementById("myModal");
+
+    var span = document.getElementsByClassName("close")[0]; // element that closes the modal
+
+    span.onclick = function() { // the user clicks on the X, close the modal window
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) { // when the user clicks anywhere outside of the modal, close the modal window
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    function jumpTo() {
+      document.getElementById("jumpToHere").scrollIntoView();
+    }
+    
+    function testingPurposes(text) {
+      alert(text);
+    }
+    
+    function changeUnits(unitChoice) {
+      document.getElementById("UnitChoices").innerHTML = unitChoice;
+    }
+
+    function textInput(cbox) {
+      if (cbox.checked) { // activates when the checkbox is clicked
+        var input = document.createElement("input"); 
+        // all the properties of the input box: number box, greyed out text, minimum number, and id of the box
+        input.type = "text";
+        input.placeholder = "number here";
+        input.min = "0";
+        input.id = cbox.name + "Weight";
+        var div = document.createElement("div");
+        div.id = cbox.name + ("box");
+        var lowercaseName = cbox.name.toLowerCase(); // to make the name of the text lowercase
+        if (div.id == "Rubberbox") {
+          div.innerHTML = "Enter weight of " + lowercaseName + " and leather: "; // the rubber variable accounts for both rubber and leather
+        } else {
+          div.innerHTML = "Enter weight of " + lowercaseName + ": "; // text next to the input box, for all other recyclables
+        }
+        div.appendChild(input);
+        document.getElementById("insertInputs" + cbox.name).appendChild(div); // different id for every recyclable
+      } else {
+        document.getElementById(cbox.name+"box").remove(); // gets rid of the input box if the checkbox is unchecked
+        document.getElementById(cbox.name+"Weight").remove();
+      }
+    }
+
+    function track_recyclables() {
+      var Totals = 0; // the amount of waste recycled 
+      var CompleteTotals = 0; // the total generated amount of waste
+      var chosenUnit = document.getElementById("UnitChoices");
+
+      // paper
+      var Paper = document.getElementById("Paper"); 
+      const PaperRate = 0.45;
+      if (Paper.checked == true) {
+        var PaperValue = document.getElementById("PaperWeight").value; // gets the value the user types in
+        var ParsedPaper = parseFloat(PaperValue); // turns the variable into a number type
+        CompleteTotals += ParsedPaper;
+        Totals += (PaperRate * ParsedPaper);
+      }
+
+      // cardboard
+      var Cardboard = document.getElementById("Cardboard");
+      const CardboardRate = 0.888;
+      if (Cardboard.checked == true) {
+        var CardboardValue = document.getElementById("CardboardWeight").value;
+        var ParsedCardboard = parseFloat(CardboardValue);
+        CompleteTotals += ParsedCardboard;
+        Totals += (CardboardRate * ParsedCardboard);
+      }
+
+      // glass
+      var Glass = document.getElementById("Glass");
+      const GlassRate = 0.264;
+      if (Glass.checked == true) {
+        const GlassValue = document.getElementById("GlassWeight").value;
+        var ParsedGlass = parseFloat(GlassValue);
+        CompleteTotals += ParsedGlass;
+        Totals += (GlassRate * ParsedGlass);
+      }
+
+      // plastic
+      var Plastic = document.getElementById("Plastic");
+      const PlasticRate = 0.09;
+      if (Plastic.checked == true) {
+        var PlasticValue = document.getElementById("PlasticWeight").value;
+        var ParsedPlastic = parseFloat(PlasticValue);
+        CompleteTotals += ParsedPlastic;
+        Totals += (PlasticRate * ParsedPlastic);
+      }
+
+      // metal that excludes aluminum
+      var Metal = document.getElementById("Metal");
+      const MetalRate = 0.34; 
+      if (Metal.checked == true) {
+        var MetalValue = document.getElementById("MetalWeight").value;
+        var ParsedMetal = parseFloat(MetalValue);
+        CompleteTotals += ParsedMetal;
+        Totals += (MetalRate * ParsedMetal);
+      }
+
+      // aluminum
+      var Aluminum = document.getElementById("Aluminum");
+      const AluminumRate = 0.349;
+      if (Aluminum.checked == true) {
+        var AluminumValue = document.getElementById("AluminumWeight").value;
+        var ParsedAluminum = parseFloat(AluminumValue);
+        CompleteTotals += ParsedAluminum;
+        Totals += (AluminumRate * ParsedAluminum);
+      }
+
+      // rubber/leather but for simplicity's sake, leather and rubber are represented by the variable name rubber
+      var Rubber = document.getElementById("Rubber");
+      const RubberRate = 0.182;
+      if (Rubber.checked == true) {
+        var RubberWeight = document.getElementById("RubberWeight").value;
+        var ParsedRubber = parseFloat(RubberValue);
+        CompleteTotals += ParsedRubber;
+        Totals += (RubberRate * ParsedRubber);
+      }
+
+      var recycledRounded = Totals.toFixed(2); // total amount recycled rounded
+      var generatedRounded = CompleteTotals.toFixed(2); // totatl amount generated rounded
+      var recycledPercentage = ((recycledRounded/generatedRounded) * 100); // percentage of generated waste recycled
+      var percentagedRounded = recycledPercentage.toFixed(2); // recycled percentage rounded
+
+      document.getElementById("after_submit").style.visibility = "visible";
+
+      document.getElementById("results_display").innerHTML = "You will be recycling " + recycledRounded + chosenUnit.innerHTML + "s out of " + generatedRounded + chosenUnit.innerHTML + "s of generated recyclables which is " + percentagedRounded + "% of your total generated waste. ";
+      modal.style.display = "block";
+    }
+
+    function openDropdown() { // opens the dropdown by clicking on the Dropdown button
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event) { // closes the dropdown menu by clicking outside of the menu
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+  </script>
 </html>
