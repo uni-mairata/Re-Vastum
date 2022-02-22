@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="../pagesCSS/style.css">
   <link rel="stylesheet" href="../pagesCSS/loading.css"> 
 	<link rel="stylesheet" href="../pagesCSS/input.css"> 
+  <link rel="stylesheet" href="../pagesCSS/mobilemenu.css">
 	
 	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js">
 
@@ -28,28 +29,35 @@
 </head>
 
 <body>
-		<header class="custom-header">
+		<div class="topnav" id="myTopnav">
+		<header class="site-header custom-header">
 			<div class="container">
 				<div class="site-header-inner">
-					<div class="brand header-brand">
+					<div class="brand header-brand active">
 						<h1 class="m-0">
 							<a href="../index.html">
-								<img class="header-logo-image" src="../dist/images/logo.svg" alt="Logo">
-                            </a>
-                        </h1>
-                    </div>
-                    <a href="../pages/input.html" class = "headerLinks"> 
-                      Track
-                    </a>
-                    <a href="../pages/info.html" class = "headerLinks"> 
-                      Learn more 
-                    </a>
-                    <a href="../pages/signup.html" class = "headerLinks"> 
-                      <b>Sign up/log in</b>
-                    </a>
-                </div>
-            </div>
+								<img class="header-logo-image clickOnThis logoWide" src="../dist/images/revastum/RE_Vastum-logos_white_stretched.png" 
+                alt="Logo">
+                <!-- <img class="header-logo-image clickOnThis logoSmall" src="dist/images/revastum/symbol_white.png" alt="Logo smol"> -->
+              </a>
+            </h1>
+          </div>
+          <a href="../pages/input.html" class = "headerLinks"> 
+            Track
+          </a>
+          <a href="../pages/info.html" class = "headerLinks"> 
+            Learn more 
+          </a>
+          <a href="../pages/signup.html" class = "headerLinks"> 
+            <b>Sign up/log in</b> 
+          </a>
+          <a href="javascript:void(0);" class="icon" onclick="mobileNavFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </div>
     </header>
+  </div>
     
     <center> <h1> How much of the recycling you put out is actually recycled? </h1> </center>
     <br>
@@ -161,6 +169,16 @@
   </body>
 
   <script>
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+      function mobileNavFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    
     var modal = document.getElementById("myModal");
 
     var span = document.getElementsByClassName("close")[0]; // element that closes the modal

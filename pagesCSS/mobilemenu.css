@@ -1,0 +1,55 @@
+.topnav {
+  overflow: hidden;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none !important;
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .site-header-inner {
+    display:flex;
+  }
+}
+/* 
+@media screen and (min-width: 600px) {
+  .logoSmall {
+    display: none;
+  }
+  .logoWide {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logoWide {
+    display: none;
+  }
+  .logoSmall {
+    display: block;
+  }
+} 
+ */

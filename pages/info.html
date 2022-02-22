@@ -11,7 +11,9 @@
 	<link rel="stylesheet" href="../dist/css/style.css">
 	<link rel="stylesheet" href="../pagesCSS/style.css">
   <link rel="stylesheet" href="../pagesCSS/loading.css"> 
-	<link rel="stylesheet" href="../pagesCSS/input.css"> 
+	<link rel="stylesheet" href="../pagesCSS/input.css">
+  <link rel="stylesheet" href="../pagesCSS/info.css">
+  <link rel="stylesheet" href="../pagesCSS/mobilemenu.css">
 	
 	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js">
 
@@ -28,82 +30,144 @@
 </head>
 
 <body>
-		<header class="custom-header">
+  <div class="topnav" id="myTopnav">
+		<header class="site-header custom-header">
 			<div class="container">
 				<div class="site-header-inner">
-					<div class="brand header-brand">
+					<div class="brand header-brand active">
 						<h1 class="m-0">
 							<a href="../index.html">
-								<img class="header-logo-image" src="../dist/images/logo.svg" alt="Logo">
-                            </a>
-                        </h1>
-                    </div>
-                    <a href="../pages/input.html" class = "headerLinks"> 
-                      Track
-                    </a>
-                    <a href="../pages/info.html" class = "headerLinks"> 
-                      Learn more 
-                    </a>
-                    <a href="../pages/signup.html" class = "headerLinks"> 
-                      <b>Sign up/log in</b> 
-                    </a>
-                </div>
-            </div>
+								<img class="header-logo-image clickOnThis logoWide" src="../dist/images/revastum/RE_Vastum-logos_white_stretched.png" 
+                alt="Logo">
+                <!-- <img class="header-logo-image clickOnThis logoSmall" src="dist/images/revastum/symbol_white.png" alt="Logo smol"> -->
+              </a>
+            </h1>
+          </div>
+          <a href="../pages/input.html" class = "headerLinks"> 
+            Track
+          </a>
+          <a href="../pages/info.html" class = "headerLinks"> 
+            Learn more 
+          </a>
+          <a href="../pages/signup.html" class = "headerLinks"> 
+            <b>Sign up/log in</b> 
+          </a>
+          <a href="javascript:void(0);" class="icon" onclick="mobileNavFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </div>
     </header>
+  </div>
+  
+  <!--START Loading Screen Javascript-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      $("body").append(
+        '<div style="" id="loadingDiv"><div class="loader"></div></div>'
+      );
+      $(window).on("load", function() {
+        setTimeout(removeLoader, 500); //wait for page load
+      });
+      function removeLoader() {
+        $("html,body").scrollTop(0);
+        $("#loadingDiv").fadeOut(500, function() {
+          // fadeOut complete. Remove the loading div
+          $("#loadingDiv").remove(); //makes page more lightweight
+        });
+      }
+    </script> 
+    <!--END Loading Screen Javascript-->
+  <head>
+    <!-- <style>
+      h1{ 
+        color: white;
+        text-align: center;
+        }
+      h4{
+        color: white;
+        margin: 25px 50px;
+      }
+      p{
+        color: white;
+        background-color: #7DA87B;
+        margin: 25px 50px 75px 50px;
+        padding: 50px;
+      }
+    </style> -->
+  </head>
+  
+  <body>
+    <h1>Track Your Recyclables' Impact</h1>
+    <h4>WHAT IS THE ONGOING PROBLEM?</h4>
+    <p>Landfills are constantly expanding, taking up land space. Approximately 1.3 billion tons of waste goes to landfills each year, and by 2025 it is estimated that waste going to landfills each year will be nearly doubled, to 2.2 billion tons. Landfills contribute to greenhouse gas emissions (such as CO2) and groundwater pollution.
+    </p>
     
-  <center><h1>Track Your Recyclables' Impact</h1></center>
-
-	<p style="margin-left: 25px; font-size: 25px;"><b>WHAT IS THE ONGOING PROBLEM?</b></p>
-  <p style="margin-left: 25px; font-size: 18.5px;">
-    Massive amounts of municipal solid waste (MSW) is being generated annually but only a fraction is recycled. In 2018, 292.4 million tons were produced, accounting for 4.9 pounds per person daily. However, only 94 million tons were recycled.</p>
-     <p style="margin-left: 25px; font-size: 18.5px;">Landfills are constantly expanding, taking up land space. Approximately 1.3 billion tons of waste goes to landfills each year, and by 2025 it is estimated that waste going to landfills each year will be nearly doubled, to 2.2 billion tons.</p>
-     <p style="margin-left: 25px; font-size: 18.5px;"> Landfills contribute to greenhouse gas emissions (such as CO2) and groundwater pollution.</p>
-
-    <p style="margin-left: 25px; font-size: 25px;"><b>COMMON MISCONCEPTIONS ABOUT RECYCLING</b></p>
-     <ol style= color:white>
-       <li style="margin-left: 25px; font-size: 18.5px;"}>Materials can only be recycled once - recyclables can actually be recycled mutliple times</li>
-       <li style="margin-left: 25px; font-size: 18.5px;"}>The chasing arrow symbol means that an item is recyclable - the symbol is misleading because it is on every single plastic container and the number embedded inside of the symbol is used to discover the class of resin in the container.</li>
-       <li style="margin-left: 25px; font-size: 18.5px;"> To-go cups and boxes are not recylable, and will contribute to contaminatioon - styrofoam is not recyclable although great amounts of it are recycled on a daily basis
-         
-         </li></p>
-      </ol>
-
-   <br>
-   <p style="font-size: 18.5px;"><b>.</b></p>
-
-     <p style="margin-left:25px; font-size: 25px;"><b>FAQ</b></p>
-     <p style="margin-left:25px; font-size: 18.5px;">1. What is recycling?
-       <br>
-       <em>Recycling is the act of collecting certain used items and transforming them into new reusable items, instead of permanently trashing them, which could harm the environment.</em></p>
-    
-     <p style="margin-left: 25px; color:white; font-size: 18.5px;">2. What should I put in my recycling bin?
-       <br>
-       <em>- Cardboard
-        <br>- Paper
-        <br>- Food boxes
-        <br>- Mail
-        <br>- Beverage cans
-        <br>- Food cans
-        <br>- Glass bottles
-        <br>- Jars (glass and plastic)
-        <br>- Jugs
-        <br>- Plastic bottles and caps</em></p>
-
-     <p style= "margin-left: 25px; font-size: 18.5px;">3. What should I not put in my recycling bin?
-       <br>
-       <em>- Garden hoses
-        <br>- Sewing needles
-        <br>- Bowling balls
-        <br>- Broken glass
-        <br>- Unempty aerosol cans</em></p>
-     
-     <p style= "margin-left: 25px; font-size: 18.5px;">4. How does recycling benefit the environment?
-       <br>
-       <em>Recycling benefits the environment because it enables conservation of energy. This is because recycling various materials can be manufactured, preventing people from having to extract and use up more natural resources. Therefore, resources are also preserved and wasted less, so forms of nonrenewable energy are being used up slower. Recycling also ensures that less waste becomes incorporated into landfills, which contributes to the piling of solid waste and limiting land use. This means that there would be less pollution to the earth, therefore preserving the flora and fauna and protecting their homes. Moreover, it opens new job opportunities at recycling centers and manufacturing industries - it provides 681 thousand jobs annually.</em>
-     </p>
-
-</body>
-
-
+    <h4>COMMON MISCONCEPTIONS ABOUT RECYCLING</h4> 
+    <p>
+      <b> 1. </b> Materials can only be recycled once - <br>
+          <span class="mis-answer"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Recyclables can actually be recycled mutliple times. </span> <br>
+      <b> 2. </b> The chasing arrow symbol means that an item is recyclable - <br>
+          <span class="mis-answer"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            The symbol is misleading because it is on every single plastic container and the number embedded inside of the symbol is used to discover the class of resin in the container. </span> <br>
+      <b> 3. </b> To-go cups and boxes are not recylable, and will contribute to contaminatioon - <br>
+          <span class="mis-answer"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Styrofoam is not recyclable although great amounts of it are recycled on a daily basis. </span>
+    </p>
+      
+    <h4>FAQ</h4>
+        <p>
+        <b> 1. </b> What is recycling? <br>
+        Recycling is the act of collecting certain used 
+        items and transforming them into new reusable 
+          items, instead of permanently trashing them, 
+          which could harm the environment.<br>
+        <b> 2. </b> What should I put in my recycling bin?
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp; is used for spacing 
+                &rarr; is used for the arrow symbol -->
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Cardboard
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Paper
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Food boxes
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Mail
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Beverage cans
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Food cans
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Glass bottles
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Jars (glass & plastic)
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Jugs
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Plastic bottles & caps
+          <!-- <ul>
+            <li>Cardboard</li>
+            <li>Paper</li>
+            <li>Food Boxes</li>
+            <li>Mail</li>
+            <li>Beverage Cans</li>
+            <li>Food Cans</li>
+            <li>Glass Bottles</li>
+            <li>Jars (glass & plastic)</li>
+            <li>Jugs</li>
+            <li>Plastic Bottles & Caps</li>
+          </ul> --> <br>
+        <b>3.</b> What should I not put in my recycling bin?
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Garden hoses
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Sewing needles
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Bowling balls
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Broken glass
+          <br>&nbsp;&nbsp;&nbsp;&nbsp; &rarr; Unempty aerosol cans
+          <br>
+        <b>4.</b> How does recycling benefit the environment? <br>
+          Recycling benefits the environment because it enables conservation of energy. This is because recycling various materials can be manufactured, preventing people from having to extract and use up more natural resources. Therefore, resources are also preserved and wasted less, so forms of nonrenewable energy are being used up slower. Recycling also ensures that less waste becomes incorporated into landfills, which contributes to the piling of solid waste and limiting land use. This means that there would be less pollution to the earth, therefore preserving the flora and fauna and protecting their homes. Moreover, it opens new job opportunities at recycling centers and manufacturing industries - it provides 681 thousand jobs annually.
+        </p>
+    <script>
+      /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+      function mobileNavFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+  </body>
 </html>
-

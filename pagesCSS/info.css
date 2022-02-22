@@ -1,0 +1,20 @@
+h1 { 
+  color: white;
+  text-align: center;
+  }
+
+h4 {
+  color: white;
+  margin: 25px 50px;
+}
+
+p {
+  color: white;
+  background-color: #7DA87B;
+  margin: 25px 50px 75px 50px;
+  padding: 50px;
+}
+
+.mis-answer {
+  color: #F5F5C6;
+}
